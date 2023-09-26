@@ -1,0 +1,199 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EnvioCFE_entreEmpresas xmlns="http://cfe.dgi.gub.uy" version="1.0">
+	<Caratula version="1.0">
+		<RutReceptor>210700000014</RutReceptor>
+		<RUCEmisor>216157420018</RUCEmisor>
+		<Idemisor>234234</Idemisor>
+		<CantCFE>1</CantCFE>
+		<Fecha>2023-09-21T17:02:14-03:00</Fecha>
+
+	</Caratula>
+<CFE_Adenda><CFE xmlns="http://cfe.dgi.gub.uy" version="1.0"><eFact>
+	<TmstFirma>2023-09-21T15:48:26-03:00</TmstFirma>
+	<Encabezado>
+		<IdDoc>
+			<TipoCFE>111</TipoCFE>
+			<Serie>A</Serie>
+			<Nro>5332</Nro>
+			<NroInterno>23423432</NroInterno>
+			<FchEmis>2023-09-21</FchEmis>
+			<FmaPago>2</FmaPago>
+			<FchVenc>2023-10-06</FchVenc>
+		</IdDoc>
+		<Emisor>
+			<RUCEmisor>216157420018</RUCEmisor>
+			<RznSoc>Ingeniería en Seguridad SRL</RznSoc>
+			<NomComercial>Ingeniería en Seguridad SRL</NomComercial>
+			<CdgDGISucur>4</CdgDGISucur>
+			<DomFiscal>Juan Paullier 1439</DomFiscal>
+			<Ciudad>Montevideo</Ciudad>
+			<Departamento>Montevideo</Departamento>
+			<InfoAdicionalEmisor/>
+		</Emisor>
+		<Receptor>
+			<TipoDocRecep>2</TipoDocRecep>
+			<CodPaisRecep>UY</CodPaisRecep>
+			<DocRecep>210700000014</DocRecep>
+			<RznSocRecep>LEOANRDO FIORENTINO S.A.</RznSocRecep>
+			<DirRecep>REPUBLICA </DirRecep>
+			<CiudadRecep>MONTEVIDEO</CiudadRecep>
+			<DeptoRecep>Montevideo</DeptoRecep>
+			<PaisRecep>Uruguay</PaisRecep>
+			<LugarDestEnt>REPUBLICA</LugarDestEnt>
+			<CompraID>false</CompraID>
+		</Receptor>
+		<Totales>
+			<TpoMoneda>USD</TpoMoneda>
+			<TpoCambio>38.053</TpoCambio>
+			<MntNoGrv>0.00</MntNoGrv>
+			<MntExpoyAsim>0.00</MntExpoyAsim>
+			<MntImpuestoPerc>0.00</MntImpuestoPerc>
+			<MntIVaenSusp>0.00</MntIVaenSusp>
+			<MntNetoIvaTasaMin>0.00</MntNetoIvaTasaMin>
+			<MntNetoIVATasaBasica>1385.00</MntNetoIVATasaBasica>
+			<IVATasaMin>10.000</IVATasaMin>
+			<IVATasaBasica>22.000</IVATasaBasica>
+			<MntIVATasaMin>0.00</MntIVATasaMin>
+			<MntIVATasaBasica>304.70</MntIVATasaBasica>
+			<MntTotal>1689.70</MntTotal>
+			<CantLinDet>9</CantLinDet>
+			<MontoNF>0.30</MontoNF>
+			<MntPagar>1690.00</MntPagar>
+		</Totales>
+	</Encabezado>
+	<Detalle>
+		<Item>
+			<NroLinDet>1</NroLinDet>
+			<CodItem>
+				<TpoCod>INT1</TpoCod>
+				<Cod>ISC-PDL1-W18G</Cod>
+			</CodItem>
+			<IndFact>3</IndFact>
+			<NomItem>Detector Tritech dual con antimasking por microonda, 18x25m ó 7,5x10 m *</NomItem>
+			<DscItem>[ISC-PDL1-W18G] Detector Tritech dual con antimasking por microonda, 18x25m ó 7,5x10 m *</DscItem>
+			<Cantidad>2.000</Cantidad>
+			<UniMed>un</UniMed>
+			<PrecioUnitario>95.000000</PrecioUnitario>
+			<MontoItem>190.00</MontoItem>
+		</Item>
+		<Item>
+			<NroLinDet>2</NroLinDet>
+			<CodItem>
+				<TpoCod>INT1</TpoCod>
+				<Cod>2039</Cod>
+			</CodItem>
+			<IndFact>3</IndFact>
+			<NomItem>Paradox Detector Digital Paradome 360 (Techo) DG467</NomItem>
+			<DscItem>[2039] Paradox Detector Digital Paradome 360 (Techo) DG467</DscItem>
+			<Cantidad>4.000</Cantidad>
+			<UniMed>un</UniMed>
+			<PrecioUnitario>95.000000</PrecioUnitario>
+			<MontoItem>380.00</MontoItem>
+		</Item>
+		<Item>
+			<NroLinDet>3</NroLinDet>
+			<CodItem>
+				<TpoCod>INT1</TpoCod>
+				<Cod>1640</Cod>
+			</CodItem>
+			<IndFact>3</IndFact>
+			<NomItem>Paradox Fuente Supervisada PS25</NomItem>
+			<DscItem>[1640] Paradox Fuente Supervisada PS25</DscItem>
+			<Cantidad>1.000</Cantidad>
+			<UniMed>un</UniMed>
+			<PrecioUnitario>95.000000</PrecioUnitario>
+			<MontoItem>95.00</MontoItem>
+		</Item>
+		<Item>
+			<NroLinDet>4</NroLinDet>
+			<CodItem>
+				<TpoCod>INT1</TpoCod>
+				<Cod>1625</Cod>
+			</CodItem>
+			<IndFact>3</IndFact>
+			<NomItem>Paradox Expansión ZX8 (Compatible con todas las centrales)</NomItem>
+			<DscItem>[1625] Paradox Expansión ZX8 (Compatible con todas las centrales)</DscItem>
+			<Cantidad>1.000</Cantidad>
+			<UniMed>un</UniMed>
+			<PrecioUnitario>95.000000</PrecioUnitario>
+			<MontoItem>95.00</MontoItem>
+		</Item>
+		<Item>
+			<NroLinDet>5</NroLinDet>
+			<CodItem>
+				<TpoCod>INT1</TpoCod>
+				<Cod>7035</Cod>
+			</CodItem>
+			<IndFact>3</IndFact>
+			<NomItem>Gabinete de central Paradox 11x11x3</NomItem>
+			<DscItem>[7035] Gabinete de central Paradox 11x11x3</DscItem>
+			<Cantidad>1.000</Cantidad>
+			<UniMed>un</UniMed>
+			<PrecioUnitario>45.000000</PrecioUnitario>
+			<MontoItem>45.00</MontoItem>
+		</Item>
+		<Item>
+			<NroLinDet>6</NroLinDet>
+			<CodItem>
+				<TpoCod>INT1</TpoCod>
+				<Cod>BAT12V7AH</Cod>
+			</CodItem>
+			<IndFact>3</IndFact>
+			<NomItem>Batería 12V 7Ah</NomItem>
+			<DscItem>[BAT12V7AH] Batería 12V 7Ah</DscItem>
+			<Cantidad>1.000</Cantidad>
+			<UniMed>un</UniMed>
+			<PrecioUnitario>52.000000</PrecioUnitario>
+			<MontoItem>52.00</MontoItem>
+		</Item>
+		<Item>
+			<NroLinDet>7</NroLinDet>
+			<CodItem>
+				<TpoCod>INT1</TpoCod>
+				<Cod>1016</Cod>
+			</CodItem>
+			<IndFact>3</IndFact>
+			<NomItem>Transformador 16 v. 2a.</NomItem>
+			<DscItem>[1016] Transformador 16 v. 2a.</DscItem>
+			<Cantidad>1.000</Cantidad>
+			<UniMed>un</UniMed>
+			<PrecioUnitario>38.000000</PrecioUnitario>
+			<MontoItem>38.00</MontoItem>
+		</Item>
+		<Item>
+			<NroLinDet>8</NroLinDet>
+			<CodItem>
+				<TpoCod>INT1</TpoCod>
+				<Cod>43</Cod>
+			</CodItem>
+			<IndFact>3</IndFact>
+			<NomItem>(Servicios Alarma) Instalación, configuración y/o puesta en marcha</NomItem>
+			<DscItem>(Servicios Alarma) Instalación, configuración y/o puesta en marcha</DscItem>
+			<Cantidad>1.000</Cantidad>
+			<UniMed>un</UniMed>
+			<PrecioUnitario>490.000000</PrecioUnitario>
+			<MontoItem>490.00</MontoItem>
+		</Item>
+		<Item>
+			<NroLinDet>9</NroLinDet>
+			<CodItem>
+				<TpoCod>INT1</TpoCod>
+				<Cod>Redondeo</Cod>
+			</CodItem>
+			<IndFact>6</IndFact>
+			<NomItem>Redondeo Cero Decimal</NomItem>
+			<DscItem>Redondeo Cero Decimal</DscItem>
+			<Cantidad>1.000</Cantidad>
+			<UniMed>N/A</UniMed>
+			<PrecioUnitario>0.300000</PrecioUnitario>
+			<MontoItem>0.30</MontoItem>
+		</Item>
+	</Detalle>
+	<CAEData>
+		<CAE_ID>24324324</CAE_ID>
+		<DNro>23432</DNro>
+		<HNro>234234</HNro>
+		<FecVenc>2024-11-03</FecVenc>
+	</CAEData>
+</eFact>
+<Signature xmlns="http://www.w3.org/2000/09/xmldsig#"><SignedInfo><CanonicalizationMethod Algorithm="http://www.w3.org/TR/2001/REC-xml-c14n-20010315"/><SignatureMethod Algorithm="http://www.w3.org/2000/09/xmldsig#rsa-sha1"/><Reference URI=""><Transforms><Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature"/></Transforms><DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1"/><DigestValue>yTOR8EKzFJeDPzzIC1EWyqoHgY0=</DigestValue></Reference></SignedInfo><KeyInfo><X509Data><X509IssuerSerial><X509IssuerName>CN=Abitab, OU=ID digital, O=Abitab S.A., L=Montevideo, C=UY</X509IssuerName><X509SerialNumber>86772768846571234214132450827771204292566</X509SerialNumber></X509IssuerSerial></X509Data></KeyInfo></Signature></CFE><Adenda>Servicio pedido por Carolina <br/><br/>Cuentas bancarias a nombre de Ingeniería en Seguridad SRL:<br/><br/>ITAU CC USD - <br/>ITAU CC $ - <br/><br/>BROU CC USD - -00001<br/>BROU CC $ - -00002</Adenda></CFE_Adenda></EnvioCFE_entreEmpresas>

@@ -1,0 +1,77 @@
+Inicializacion
+
+Antes de comenzar lea la documentacion.
+
+
+Sobre la funcionalidad
+
+- La funcion del siguiente Script conciste en crear una coneccion con una cuenta determinada de Outlook, leer los archivos que contengan un archivo adjunto de timpo XML, descargar dichos archivos y almacenarlos en una carpeta.
+- Posteriormente leera los archivos descargados y guardara los datos que se consideren relevantes en una Base de datos.
+- En funcion a los datos capturados creara unos DataFrame los cuales se utilizan para realizar las registraciones contables pertinentes.
+- Por ultimo creara un archivo con los Logs del proceso, y se realizara el envio de un mail notificando del proceso con los DataFrame creados adjuntos en el mail
+
+
+Sobre la implementacion
+
+- El siguiente es un caso de ejemplo para demostrar el funcionamiento del script.
+- La BD se encuentra con informacion ya creada. Existen creados 3 Proveedores y 3 Articulos, Los registros surgientes del proceso se crearan automaticamente.
+- El ejemplo fue desarrollado y pensado a medida para las necesidades puntuales de negocio para la empresa donde se desarrollo.
+- Antes de ejecutar debe configurar la viariable de fecha de proceso
+- La funcion de descarga demail estara desactivada.
+    En caso de desear ejecutarla debe realizar la siguiente configuracion.
+        i. Dentro del archivo "Variables.py" dentro del directorio ReadXml/ReceivedMail, debera indicar su cuenta de Outlook y la carpera donde contendran los archivos XML a descargar.
+        ii. Tambien debera determinar dentro del mismo archivo el "Destination_account" que es a la casilla donde enviara los mail de notificacion.
+
+
+
+---PARA INCIALIZAR EL PROYECTO---
+
+1. Ejecute - pyhton -m venv env - para crear un entorno virtual de python, luego inicialice el entorno virtual
+
+2. Ejecute - python manage.py -r requirements.txt - para instalar todas las dependencias
+
+3. Ejecute - python ReadXml/ReceivedMail/processXml.py
+
+
+
+---Sobre el desarrollo del proceso de ejecucion---
+
+1. Sobre el proceso de ejecucion.
+    0. Debe encontrarse dentro del directorio raiz para ejecutar el script
+    i. El documento raiz se inicializa en "readMail.py", el cual se encarga de conectarse con la casilla de correo designada y extraer todos los archivos adjuntos de tipo XML que se encuentren en los mail y los almacena en un directorio nombrado y organizado segun el dia de recepcion del correo electronico.
+    ii. Este contiene una funcion que se importa del archivo "ProcessXml.py" el cual se encarga de recorrer todos los archivos XML descargados, leerlos y guardarlos en la BD segun corresponda
+    iii. Siguiente se ejecuta dentor de "ProcessXml.py" el archivo de "dataFrame.py", el cual crea los DataFrame de la informacion guardad en la BD y luego los exporta a una documento Xlsx, diseñado a medida para este modelo de negocio, el cual se encargara de ser procesado para su registracion contable.
+    iv. Una vez terminado el proceso dentro del directorio donde se encuentran los archios XML se creara un documento "Logs" el cual contendra la informacion de los estados del proceso.
+    v. Por ultimo una vez finalizado el proceso, se enviara un mail notificando del correcto proceso, de la creacion de los archivos, y los mismos iran adjuntos en el correo enviado para su procesamiento.
+
+
+
+---Sobre informacion general del Script---
+
+1. Sobre el guardado de los datos.
+    i. ProvType - Aqui se guarda la informacion referente al proveedor.
+    ii. Article - Aqui se guarda la informacion referente al articulo.
+    iii. DocXml - Aqui se guarda la creacion de una instancia del documento
+    iv. Item - Aqui se guarda la creacion de los items correspondientes a cada documento.
+    v. AdData - Aqui se guarda informacion adicional referente al documento.
+
+2. Sobre la ejecucion del script.
+    i. Se creo archivo Variables, donde se definen varios parametros como las fechas con las que trabajaran los procesos, rutas de diectorios, nombres de listas, constantes.
+    ii. Se creo archivo de Query donde crea las consultas a la BD
+
+
+
+---Sobre la personalizacion del Script---
+
+1. Configure su cunta de Email
+    i. Dentro del directorio "ReadXml/ReadXml/settings.py - Ir al apartado "Email settings". Alli debera crear la conexion con su cuenta de email para que permita realizar el envio correctamente.
+    ii. Si no cuenta con una cuenta de correo o no sabe como configurarla, el ejemplo ya cuenta con una casilla de correo predeterminada.
+
+2. Poble su base de datos con las siguiente informacion:
+    i. Financieras - Puede crear los ProvType con prov_type Financiera - Esto sirve para definir que proveedores trabajara con esta modalidad. Los proveedores que no se encuentren creados se crearan automaticamente cuando se ejecute el script.
+    ii. Los nuevos proveedores se inicializaran con el prov_type "Proveedor", ajustelo segun sus necesidades luego de creado.
+    iii. Los nuevos proveedores se inicializaran con prov_sap N/A, debera ajustarlo segun correponda para futuros casos.
+    iv. Articulos - Cree los articulos correspondiente a Arancel designados para cada financiera.
+    v. Los nombres de los articulos deben estar con la misma nomenclatura que el nombre del ProvType
+    vi. Existen creados articulos genericos. "Financiacion", "Costo de envio", "Retencion17453", no sera necesario poblar la base con dichos articulos.
+

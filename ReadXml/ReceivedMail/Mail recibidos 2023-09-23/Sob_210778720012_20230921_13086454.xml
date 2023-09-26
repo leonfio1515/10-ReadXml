@@ -1,0 +1,233 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?><EnvioCFE_entreEmpresas xmlns="http://cfe.dgi.gub.uy" xmlns:ns2="http://www.w3.org/2001/04/xmlenc#" xmlns:ns3="http://www.w3.org/2000/09/xmldsig#" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="1.0" xsi:schemaLocation="http://cfe.dgi.gub.uy EnvioCFE_entreEmpresas.xsd"><Caratula version="1.0"><RutReceptor>210700000014</RutReceptor><RUCEmisor>210778720012</RUCEmisor><Idemisor>13086454</Idemisor><CantCFE>1</CantCFE><Fecha>2023-09-21T21:43:18.330-03:00</Fecha></Caratula><ns3:CFE_Adenda xmlns="http://tilsor.com.uy/#UTEAdenda" xmlns:ns2="http://tilsor.com.uy/#BasicAdenda" xmlns:ns3="http://cfe.dgi.gub.uy" xmlns:ns4="http://www.w3.org/2001/04/xmlenc#" xmlns:ns5="http://www.w3.org/2000/09/xmldsig#" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://cfe.dgi.gub.uy CFEEmpresas.xsd"><CFE xmlns="http://cfe.dgi.gub.uy" xmlns:ns2="http://www.w3.org/2001/04/xmlenc#" xmlns:ns3="http://www.w3.org/2000/09/xmldsig#" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="1.0" xsi:schemaLocation="http://cfe.dgi.gub.uy CFEDGI.xsd"><eFact><TmstFirma>2023-09-21T21:16:22.886-03:00</TmstFirma>
+
+<Encabezado>
+<IdDoc>
+<TipoCFE>111</TipoCFE>
+<Serie>B</Serie><Nro>395337746</Nro>
+
+<FchEmis>2023-09-21</FchEmis>
+<FchVenc>2023-10-04</FchVenc>
+
+<PeriodoDesde>2023-08-21</PeriodoDesde><PeriodoHasta>2023-09-21</PeriodoHasta>
+
+<FmaPago>2</FmaPago>
+</IdDoc>
+
+<Emisor><RUCEmisor>210778720012</RUCEmisor><RznSoc>Administración Nacional de Usinas y Transmisiones Eléctricas</RznSoc><NomComercial>U.T.E.</NomComercial><Telefono>08001930</Telefono><Telefono>1930</Telefono><CorreoEmisor>ute@ute.com.uy</CorreoEmisor><CdgDGISucur>1</CdgDGISucur><DomFiscal>Paraguay 2431</DomFiscal><Ciudad>Montevideo</Ciudad><Departamento>Montevideo</Departamento>
+</Emisor>
+
+
+<Receptor>
+<TipoDocRecep>2</TipoDocRecep><CodPaisRecep>UY</CodPaisRecep><DocRecep>210700000014</DocRecep>
+<RznSocRecep>LEONARDO FIORENTINO S.A.</RznSocRecep>
+<DirRecep>CL DON BOSCO</DirRecep><CiudadRecep>MERCEDES</CiudadRecep><DeptoRecep>SORIANO</DeptoRecep>
+
+<PaisRecep>Uruguay</PaisRecep>
+<CP>37504569</CP><InfoAdicional>17039884224552</InfoAdicional>  
+<LugarDestEnt>CL DON BOSCO</LugarDestEnt></Receptor>
+
+<Totales>
+<TpoMoneda>UYU</TpoMoneda>
+<MntNoGrv>0.00</MntNoGrv>
+<MntExpoyAsim>0.00</MntExpoyAsim>
+<MntImpuestoPerc>0.00</MntImpuestoPerc>
+<MntIVaenSusp>0.00</MntIVaenSusp>
+
+<MntNetoIvaTasaMin>0.00</MntNetoIvaTasaMin>
+<MntNetoIVATasaBasica>6077.75</MntNetoIVATasaBasica>
+
+<IVATasaMin>10.000</IVATasaMin>
+<IVATasaBasica>22.000</IVATasaBasica>
+
+<MntIVATasaMin>0.00</MntIVATasaMin>
+<MntIVATasaBasica>1337.11</MntIVATasaBasica>
+
+<MntIVAOtra>0.00</MntIVAOtra>
+<MntTotal>7414.86</MntTotal>
+<MntTotRetenido>0.00</MntTotRetenido>
+<CantLinDet>4</CantLinDet>
+<MontoNF>0.14</MontoNF>
+<MntPagar>7415.00</MntPagar>
+</Totales>
+
+
+</Encabezado>
+
+<Detalle>
+<Item>
+<NroLinDet>1</NroLinDet>
+<IndFact>1</IndFact>
+<NomItem>Importe No Gravado</NomItem>
+<Cantidad>0.00</Cantidad>
+<UniMed>N/A</UniMed>
+<PrecioUnitario>1.00</PrecioUnitario>
+<DescuentoPct>0.00</DescuentoPct>
+<DescuentoMonto>0.00</DescuentoMonto>
+<RecargoPct>0.00</RecargoPct>
+<RecargoMnt>0.00</RecargoMnt>
+<MontoItem>0.00</MontoItem>
+</Item>
+
+<Item>
+<NroLinDet>2</NroLinDet>
+<IndFact>2</IndFact>
+<NomItem>Importe Gravado 10%</NomItem>
+<Cantidad>0.00</Cantidad>
+<UniMed>N/A</UniMed>
+<PrecioUnitario>1.00</PrecioUnitario>
+<DescuentoPct>0.00</DescuentoPct>
+<DescuentoMonto>0.00</DescuentoMonto>
+<RecargoPct>0.00</RecargoPct>
+<RecargoMnt>0.00</RecargoMnt>
+<MontoItem>0.00</MontoItem>
+</Item>
+
+<Item>
+<NroLinDet>3</NroLinDet>
+<IndFact>3</IndFact>
+<NomItem>Importe Gravado 22%</NomItem>
+<Cantidad>1.00</Cantidad>
+<UniMed>N/A</UniMed>
+<PrecioUnitario>6077.75</PrecioUnitario>
+<DescuentoPct>0.00</DescuentoPct>
+<DescuentoMonto>0.00</DescuentoMonto>
+<RecargoPct>0.00</RecargoPct>
+<RecargoMnt>0.00</RecargoMnt>
+<MontoItem>6077.75</MontoItem>
+</Item>
+
+<Item>
+<NroLinDet>4</NroLinDet>
+<IndFact>6</IndFact>
+<NomItem>Redondeo</NomItem>
+<Cantidad>1.00</Cantidad>
+<UniMed>N/A</UniMed>
+<PrecioUnitario>0.14</PrecioUnitario>
+<DescuentoPct>0.00</DescuentoPct>
+<DescuentoMonto>0.00</DescuentoMonto>
+<RecargoPct>0.00</RecargoPct>
+<RecargoMnt>0.00</RecargoMnt>
+<MontoItem>0.14</MontoItem>
+</Item>
+
+</Detalle>
+
+
+<CAEData><CAE_ID>90322232387245</CAE_ID><DNro>3830303012</DNro><HNro>421030020</HNro><FecVenc>2024-12-25</FecVenc></CAEData></eFact><ds:Signature xmlns:ds="http://www.w3.org/2000/09/xmldsig#" >
+<ds:SignedInfo>
+<ds:CanonicalizationMethod Algorithm="http://www.w3.org/TR/2001/REC-xml-c14n-20010315"></ds:CanonicalizationMethod>
+<ds:SignatureMethod Algorithm="http://www.w3.org/2000/09/xmldsig#rsa-sha1"></ds:SignatureMethod>
+<ds:Reference URI="">
+<ds:Transforms>
+<ds:Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature"></ds:Transform>
+<ds:Transform Algorithm="http://www.w3.org/TR/1999/REC-xpath-19991116">
+<ds:XPath>
+not(ancestor-or-self::ds:Signature)
+</ds:XPath>
+</ds:Transform>
+<ds:Transform Algorithm="http://www.w3.org/TR/2001/REC-xml-c14n-20010315"></ds:Transform>
+</ds:Transforms>
+<ds:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1"></ds:DigestMethod>
+<ds:DigestValue>BLY0CNatdGiGqivPbiQBXk9e8y4=</ds:DigestValue>
+</ds:Reference>
+</ds:SignedInfo>
+
+<ds:KeyInfo>
+<ds:X509Data>
+<ds:X509IssuerSerial>
+<ds:X509IssuerName>C=UY,O=Administración Nacional de Correos,CN=Correo Uruguayo - CA</ds:X509IssuerName>
+
+<ds:X509SerialNumber>37731284765742746546727632002683265651923338362792370</ds:X509SerialNumber>
+</ds:X509IssuerSerial>
+</ds:X509Data>
+<ds:KeyValue>
+<ds:RSAKeyValue>
+
+<ds:Exponent>AQAB</ds:Exponent>
+</ds:RSAKeyValue>
+</ds:KeyValue>
+</ds:KeyInfo>
+</ds:Signature>
+</CFE>
+
+<ns3:Adenda>
+<ns2:datosAdenda>
+<datosUTE xmlns:tca="http://tilsor.com.uy/#UTEAdenda">
+<factura_simple xmlns:ns8="http://tilsor.com.uy/#UTEAdenda" xmlns="">
+
+<cabezal>
+<aor>441145010010021051</aor>
+<nro_cuenta>70988224542</nro_cuenta>
+<tipo_documento>e-Factura Crédito</tipo_documento>
+<idPredioEnvio>4352061277</idPredioEnvio>
+<persona_envio>LEONARDO FIORENTINO S.A.</persona_envio>
+<nombre_envio>LEONARDO FIORENTINO S.A.</nombre_envio>
+<numero_medidor>400851173903</numero_medidor>
+<direccion1_envio>DON BOSCO</direccion1_envio>
+<direccion2_envio>CL DON BOSCO</direccion2_envio>
+<direccion3_envio>170450045001540</direccion3_envio>
+<calle>CL DON BOSCO</calle>
+<nro_puerta>111</nro_puerta>
+<duplicador>    </duplicador>
+<cgv>LOCA</cgv>
+<descr_suministro> </descr_suministro>
+<localidad_fecha_sistema>MONTEVIDEO, 21 de Septiembre de 2023</localidad_fecha_sistema>
+<ciudad_envio>MERCEDES</ciudad_envio>
+<localidad_envio>MERCEDES</localidad_envio>
+<departamento_envio>SORIANO</departamento_envio>
+<codigo_postal_envio>735049-02350</codigo_postal_envio>
+<coda_ruta>431125 - CF 15</coda_ruta>
+<oficina_com>OFICINA COMERCIAL I MERCEDES ITUZAINGO 76, ESQ DETOMASI      </oficina_com>
+<fecha_ven>04/10/2023</fecha_ven>
+<fec_edicion_orig>21 de Septiembre de 2023</fec_edicion_orig>
+<codigocorreo>*21/097098822452F*</codigocorreo>
+<mensajecorreo>DISTRIBUYE CORREO URUGUAYO. FRANQUEO A PAGAR CUENTA N°2310</mensajecorreo>
+<lindir1>LEONARDO FIORENTINO S.A.</lindir1>
+<lindir2>CL DON BOSCO</lindir2>
+<lindir3/><lindir4>MERCEDES - CP 74063-02354 </lindir4><lindir5/><lindir6>SORIANO</lindir6><lindir7/>
+</cabezal>
+
+<cabezal_factura>
+<currency_cd>UYU</currency_cd><currency_symbol>$</currency_symbol><tipo_cambio/><clau_venta/><mod_venta/>
+<via_transp/></cabezal_factura><panelizquierdo><num_factura>S</num_factura><fecha_emi>21/09/2023</fecha_emi>
+<fecha_prox_venc>01/11/2023</fecha_prox_venc><titular_contrato>LEONARDO FIORENTINO S.A.</titular_contrato><rut_cedula>R.U.T.: 210700000014</rut_cedula><lindirpred1>CL DON BOSCO</lindirpred1><lindirpred2>MERCEDES</lindirpred2><lindirpred3/>
+<id_as>7098822222</id_as><periodoconsumo>21/08/2023 a 21/09/2023</periodoconsumo><tarifa>General Simple.</tarifa><codigoTarifa>TGS     </codigoTarifa><versionTarifa>01/03/2018</versionTarifa><zonaadt>ADT 2 - Urbana densidad media</zonaadt><pot_contr>20</pot_contr>
+
+<consumo_tot_act>909</consumo_tot_act>
+
+<lecturas>
+<lectura>
+<bseg_id>709544512234501</bseg_id>
+<tipo_registro>00000008113459545403-Activa</tipo_registro>
+<lectura_ant>17273</lectura_ant>
+<lectura_act>5181482</lectura_act>
+<multiplicador>1</multiplicador>
+<consumo_lec>909</consumo_lec>
+<tipo_lectura>Regular</tipo_lectura>
+</lectura>
+
+<lectura><bseg_id>7209541134001</bseg_id><tipo_registro>000000081143203-Reactiva</tipo_registro><lectura_ant>720</lectura_ant><lectura_act>720</lectura_act><multiplicador>1</multiplicador><consumo_lec>0</consumo_lec><tipo_lectura>Regular</tipo_lectura></lectura></lecturas><mensajes><mensaje><nro_mens>0</nro_mens><descripcion>Factura en Sistema de Débito VISANET URUGUAY</descripcion></mensaje></mensajes></panelizquierdo><detallefacturacion><linea><nro_linea>1</nro_linea><descripcion_linea bold="true" esimpuesto="false" factor="0" indent="false">CARGO FIJO</descripcion_linea><importe_linea>229.90</importe_linea></linea><linea><nro_linea>2</nro_linea><descripcion_linea bold="true" esimpuesto="false" factor="0" indent="false">CARGO POTENCIA CONTRATADA</descripcion_linea></linea><linea><nro_linea>3</nro_linea><descripcion_linea bold="false" esimpuesto="false" factor="0" indent="true"> 20,000 kW x $62,90</descripcion_linea><importe_linea>1258.00</importe_linea></linea><linea><nro_linea>4</nro_linea><descripcion_linea bold="true" esimpuesto="false" factor="0" indent="false">CARGO ENERGÍA MENSUAL</descripcion_linea></linea><linea><nro_linea>5</nro_linea><descripcion_linea bold="false" esimpuesto="false" factor="0" indent="true"> 1er Escalón 909,000 kWh x $5,579</descripcion_linea><importe_linea>5071.31</importe_linea></linea><linea><nro_linea>6</nro_linea><descripcion_linea bold="false" esimpuesto="false" factor="0" indent="false">Bonificación envío de factura digital</descripcion_linea><importe_linea>-24.00</importe_linea></linea><linea><nro_linea>7</nro_linea><descripcion_linea bold="true" esimpuesto="false" factor="0" indent="false">Descuento Comercial</descripcion_linea>
+<importe_linea>-457.46</importe_linea></linea>
+
+<linea><nro_linea>8</nro_linea><descripcion_linea bold="false" esimpuesto="false" factor="0" indent="false"/><importe_linea/></linea><linea><nro_linea>9</nro_linea><descripcion_linea bold="false" esimpuesto="false" factor="0" indent="false"/><importe_linea/></linea><linea><nro_linea>10</nro_linea><descripcion_linea bold="false" esimpuesto="false" factor="0" indent="false"/><importe_linea/></linea><linea><nro_linea>11</nro_linea><descripcion_linea bold="false" esimpuesto="false" factor="0" indent="false"/><importe_linea/></linea><linea><nro_linea>12</nro_linea><descripcion_linea bold="false" esimpuesto="false" factor="0" indent="false"/><importe_linea/></linea><linea><nro_linea>13</nro_linea><descripcion_linea bold="false" esimpuesto="false" factor="0" indent="false"/><importe_linea/></linea><linea><nro_linea>14</nro_linea><descripcion_linea bold="false" esimpuesto="false" factor="0" indent="false"/><importe_linea/></linea><linea><nro_linea>15</nro_linea><descripcion_linea bold="false" esimpuesto="false" factor="0" indent="false"/><importe_linea/></linea><linea><nro_linea>16</nro_linea><descripcion_linea bold="false" esimpuesto="false" factor="0" indent="false"/><importe_linea/></linea><linea><nro_linea>17</nro_linea><descripcion_linea bold="false" esimpuesto="false" factor="0" indent="false"/><importe_linea/></linea><linea><nro_linea>18</nro_linea><descripcion_linea bold="false" esimpuesto="false" factor="0" indent="false"/><importe_linea/></linea><linea><nro_linea>19</nro_linea><descripcion_linea bold="false" esimpuesto="false" factor="0" indent="false"/><importe_linea/></linea><linea><nro_linea>20</nro_linea><descripcion_linea bold="true" esimpuesto="false" factor="0" indent="false">SUBTOTALES</descripcion_linea></linea><linea><nro_linea>21</nro_linea><descripcion_linea bold="false" esimpuesto="false" factor="0" indent="false">Importe Gravado 22%</descripcion_linea><importe_linea>6077.75</importe_linea></linea><linea><nro_linea>22</nro_linea><descripcion_linea bold="false" esimpuesto="true" factor="22" indent="false">IVA Tasa Básica 22%</descripcion_linea><importe_linea>1337.11</importe_linea></linea><linea><nro_linea>23</nro_linea><descripcion_linea bold="false" esimpuesto="false" factor="0" indent="false">Redondeo</descripcion_linea><importe_linea>0.14</importe_linea></linea><linea><nro_linea>24</nro_linea><descripcion_linea bold="false" esimpuesto="false" factor="0" indent="false">Total</descripcion_linea><importe_linea>7415.00</importe_linea></linea></detallefacturacion><cargo_mes>7415.00</cargo_mes><deuda_ant>0.00</deuda_ant>
+
+<importe_total>7415.00</importe_total>
+<consumos_activa>
+<unaserie>
+<bseg_id>3423456476754</bseg_id>
+<fecha>St</fecha>
+<fecha_int>202209</fecha_int>
+<valor>239.00</valor>
+</unaserie><unaserie><bseg_id>730005010668</bseg_id><fecha>Oc</fecha><fecha_int>202210</fecha_int><valor>209.00</valor>
+</unaserie><unaserie><bseg_id>703947128583</bseg_id><fecha>Nv</fecha><fecha_int>202211</fecha_int><valor>1006.00</valor>
+</unaserie><unaserie><bseg_id>709054161731</bseg_id><fecha>Dc 22</fecha><fecha_int>202212</fecha_int><valor>1141.00</valor>
+</unaserie><unaserie><bseg_id>709369019044</bseg_id><fecha>En 23</fecha><fecha_int>202301</fecha_int><valor>1118.00</valor>
+</unaserie><unaserie><bseg_id>709932906049</bseg_id><fecha>Fb</fecha><fecha_int>202302</fecha_int><valor>1320.00</valor>
+</unaserie><unaserie><bseg_id>709053405903</bseg_id><fecha>Mr</fecha><fecha_int>202303</fecha_int><valor>1369.00</valor>
+</unaserie><unaserie><bseg_id>709121319035</bseg_id><fecha>Ab</fecha><fecha_int>202304</fecha_int><valor>1025.00</valor>
+</unaserie><unaserie><bseg_id>709315130191</bseg_id><fecha>My</fecha><fecha_int>202305</fecha_int><valor>827.00</valor>
+</unaserie><unaserie><bseg_id>709596113521</bseg_id><fecha>Jn</fecha><fecha_int>202306</fecha_int><valor>938.00</valor>
+</unaserie><unaserie><bseg_id>709504569377</bseg_id><fecha>Jl</fecha><fecha_int>202307</fecha_int><valor>911.00</valor>
+</unaserie><unaserie><bseg_id>709033098735</bseg_id><fecha>Ag</fecha><fecha_int>202308</fecha_int><valor>903.00</valor>
+</unaserie><unaserie><bseg_id>709411220013</bseg_id><fecha>St</fecha><fecha_int>202309</fecha_int><valor>909.00</valor>
+</unaserie><consumo_prom>239.18</consumo_prom></consumos_activa><pie><ref_cobro_total/><ref_cobro_total_barcode/><importe_total/><importe_pagar_total/><num_factura>S</num_factura><ref_cobro_factura>7029882232452463709324986820</ref_cobro_factura><ref_cobro_factura_barcode>*70324882245267094326782126820*</ref_cobro_factura_barcode><cargo_mes>7415.00</cargo_mes><importe_pagar_factura>*000000000741500*</importe_pagar_factura></pie><mensajes_adhoc/></factura_simple></datosUTE></ns2:datosAdenda></ns3:Adenda></ns3:CFE_Adenda></EnvioCFE_entreEmpresas>

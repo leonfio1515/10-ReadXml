@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<cfe:EnvioCFE_entreEmpresas version="1.0" xmlns:cfe="http://cfe.dgi.gub.uy">
+<cfe:Caratula version="1.0">
+<cfe:RutReceptor>210700000014</cfe:RutReceptor>
+<cfe:RUCEmisor>212540780010</cfe:RUCEmisor>
+<cfe:Idemisor>123443763282</cfe:Idemisor>
+<cfe:CantCFE>1</cfe:CantCFE>
+<cfe:Fecha>2023-09-21T11:35:22-03:00</cfe:Fecha>
+
+</cfe:Caratula>
+<cfe:CFE_Adenda><ns0:CFE xmlns:ns0="http://cfe.dgi.gub.uy" version="1.0">
+<ns0:eResg>
+<ns0:TmstFirma>2023-09-21T11:35:22-03:00</ns0:TmstFirma>
+<ns0:Encabezado>
+<ns0:IdDoc>
+<ns0:TipoCFE>182</ns0:TipoCFE>
+<ns0:Serie>A</ns0:Serie>
+<ns0:Nro>123197934141</ns0:Nro>
+<ns0:FchEmis>2023-09-20</ns0:FchEmis>
+</ns0:IdDoc>
+<ns0:Emisor>
+<ns0:RUCEmisor>212540780010</ns0:RUCEmisor>
+<ns0:RznSoc>S.A CIA CLUB DEL ESTE</ns0:RznSoc>
+<ns0:NomComercial>Club del Este</ns0:NomComercial>
+<ns0:CdgDGISucur>1</ns0:CdgDGISucur>
+<ns0:DomFiscal>Joaquín Suarez 95</ns0:DomFiscal>
+<ns0:Ciudad>Salto</ns0:Ciudad>
+<ns0:Departamento>Salto</ns0:Departamento>
+</ns0:Emisor>
+<ns0:Receptor>
+<ns0:TipoDocRecep>2</ns0:TipoDocRecep>
+<ns0:CodPaisRecep>UY</ns0:CodPaisRecep>
+<ns0:DocRecep>210700000014</ns0:DocRecep>
+<ns0:RznSocRecep>LEONARDO FIORENTINO S.A.</ns0:RznSocRecep>
+<ns0:DirRecep>URUGUAY </ns0:DirRecep>
+<ns0:CiudadRecep>SALTO</ns0:CiudadRecep>
+<ns0:DeptoRecep/>
+</ns0:Receptor><ns0:Totales>
+<ns0:TpoMoneda>UYU</ns0:TpoMoneda>
+<ns0:MntTotRetenido>563.85</ns0:MntTotRetenido>
+<ns0:MntTotCredFisc>0.0</ns0:MntTotCredFisc>
+<ns0:CantLinDet>1</ns0:CantLinDet>
+<ns0:RetencPercep>
+<ns0:CodRet>2183161</ns0:CodRet>
+<ns0:ValRetPerc>563.85</ns0:ValRetPerc>
+</ns0:RetencPercep>
+</ns0:Totales>
+</ns0:Encabezado>
+<ns0:Detalle>
+<ns0:Item>
+<ns0:NroLinDet>1</ns0:NroLinDet>
+<ns0:RetencPercep>
+<ns0:CodRet>2183161</ns0:CodRet>
+<ns0:Tasa>5.0</ns0:Tasa>
+<ns0:MntSujetoaRet>11277.00</ns0:MntSujetoaRet>
+<ns0:ValRetPerc>563.85</ns0:ValRetPerc>
+</ns0:RetencPercep>
+</ns0:Item>
+</ns0:Detalle>
+<ns0:CAEData>
+<ns0:CAE_ID>9022311927535343</ns0:CAE_ID>
+<ns0:DNro>150001</ns0:DNro>
+<ns0:HNro>200000</ns0:HNro>
+<ns0:FecVenc>2023-11-29</ns0:FecVenc>
+</ns0:CAEData>
+</ns0:eResg>
+<Signature xmlns="http://www.w3.org/2000/09/xmldsig#"><SignedInfo><CanonicalizationMethod Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#WithComments"/><SignatureMethod Algorithm="http://www.w3.org/2000/09/xmldsig#rsa-sha1"/><Reference URI=""><Transforms><Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature"/></Transforms><DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1"/><DigestValue>CC/dFwVr2+yWObzVi+gl7ta5O0Q=</DigestValue></Reference></SignedInfo><KeyInfo><X509Data><X509IssuerSerial><X509IssuerName>CN=Abitab, OU=ID digital, O=Abitab S.A., L=Montevideo, C=UY</X509IssuerName><X509SerialNumber>77623454385532808189912780546447404090637820712300132453836937</X509SerialNumber></X509IssuerSerial></X509Data></KeyInfo></Signature></ns0:CFE><cfe:Adenda>Nro Item: 3245344854336 Nro Comprobante: 54345444283450</cfe:Adenda>
+</cfe:CFE_Adenda>
+</cfe:EnvioCFE_entreEmpresas>

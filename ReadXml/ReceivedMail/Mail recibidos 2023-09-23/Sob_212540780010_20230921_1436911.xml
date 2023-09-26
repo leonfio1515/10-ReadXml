@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<cfe:EnvioCFE_entreEmpresas version="1.0" xmlns:cfe="http://cfe.dgi.gub.uy">
+<cfe:Caratula version="1.0">
+<cfe:RutReceptor>210700000014</cfe:RutReceptor>
+<cfe:RUCEmisor>212540780010</cfe:RUCEmisor>
+<cfe:Idemisor>124369141</cfe:Idemisor>
+<cfe:CantCFE>1</cfe:CantCFE>
+<cfe:Fecha>2023-09-21T11:35:22-03:00</cfe:Fecha>
+
+</cfe:Caratula>
+<cfe:CFE_Adenda><ns0:CFE xmlns:ns0="http://cfe.dgi.gub.uy" version="1.0">
+<ns0:eFact>
+<ns0:TmstFirma>2023-09-21T11:35:22-03:00</ns0:TmstFirma>
+<ns0:Encabezado>
+<ns0:IdDoc>
+<ns0:TipoCFE>111</ns0:TipoCFE>
+<ns0:Serie>A</ns0:Serie>
+<ns0:Nro>203332321</ns0:Nro>
+<ns0:FchEmis>2023-09-20</ns0:FchEmis>
+<ns0:FmaPago>1</ns0:FmaPago>
+</ns0:IdDoc>
+<ns0:Emisor>
+<ns0:RUCEmisor>212540780010</ns0:RUCEmisor>
+<ns0:RznSoc>S.A CIA CLUB DEL ESTE</ns0:RznSoc>
+<ns0:NomComercial>Club del Este</ns0:NomComercial>
+<ns0:CdgDGISucur>1</ns0:CdgDGISucur>
+<ns0:DomFiscal>Joaquín Suarez 95</ns0:DomFiscal>
+<ns0:Ciudad>Salto</ns0:Ciudad>
+<ns0:Departamento>Salto</ns0:Departamento>
+</ns0:Emisor>
+<ns0:Receptor>
+<ns0:TipoDocRecep>2</ns0:TipoDocRecep>
+<ns0:CodPaisRecep>UY</ns0:CodPaisRecep>
+<ns0:DocRecep>210700000014</ns0:DocRecep>
+<ns0:RznSocRecep>LEONARDO FIORENTINO S.A.</ns0:RznSocRecep>
+<ns0:DirRecep>URUGUAY</ns0:DirRecep>
+<ns0:CiudadRecep>SALTO</ns0:CiudadRecep>
+<ns0:DeptoRecep/>
+</ns0:Receptor><ns0:Totales>
+<ns0:TpoMoneda>UYU</ns0:TpoMoneda>
+<ns0:MntNoGrv>.00</ns0:MntNoGrv>
+<ns0:MntExpoyAsim>.00</ns0:MntExpoyAsim>
+<ns0:MntImpuestoPerc>.00</ns0:MntImpuestoPerc>
+<ns0:MntIVaenSusp>.00</ns0:MntIVaenSusp>
+<ns0:MntNetoIvaTasaMin>.00</ns0:MntNetoIvaTasaMin>
+<ns0:MntNetoIVATasaBasica>338.31</ns0:MntNetoIVATasaBasica>
+<ns0:MntNetoIVAOtra>.00</ns0:MntNetoIVAOtra>
+<ns0:IVATasaMin>10</ns0:IVATasaMin>
+<ns0:IVATasaBasica>22</ns0:IVATasaBasica>
+<ns0:MntIVATasaMin>.00</ns0:MntIVATasaMin>
+<ns0:MntIVATasaBasica>74.43</ns0:MntIVATasaBasica>
+<ns0:MntIVAOtra>.00</ns0:MntIVAOtra>
+<ns0:MntTotal>412.74</ns0:MntTotal>
+<ns0:CantLinDet>4</ns0:CantLinDet>
+<ns0:MontoNF>.00</ns0:MontoNF>
+<ns0:MntPagar>412.74</ns0:MntPagar>
+</ns0:Totales>
+</ns0:Encabezado>
+<ns0:Detalle>
+<ns0:Item>
+<ns0:NroLinDet>1</ns0:NroLinDet>
+<ns0:IndFact>3</ns0:IndFact>
+<ns0:NomItem>Comision - 9425138 20/09/2023</ns0:NomItem>
+<ns0:DscItem/>
+<ns0:Cantidad>1.0</ns0:Cantidad>
+<ns0:UniMed>N/A</ns0:UniMed>
+<ns0:PrecioUnitario>77.7000</ns0:PrecioUnitario>
+<ns0:MontoItem>77.70</ns0:MontoItem>
+</ns0:Item>
+<ns0:Item>
+<ns0:NroLinDet>2</ns0:NroLinDet>
+<ns0:IndFact>3</ns0:IndFact>
+<ns0:NomItem>Comision - 9425142 20/09/2023</ns0:NomItem>
+<ns0:DscItem/>
+<ns0:Cantidad>1.0</ns0:Cantidad>
+<ns0:UniMed>N/A</ns0:UniMed>
+<ns0:PrecioUnitario>80.9100</ns0:PrecioUnitario>
+<ns0:MontoItem>80.91</ns0:MontoItem>
+</ns0:Item>
+<ns0:Item>
+<ns0:NroLinDet>3</ns0:NroLinDet>
+<ns0:IndFact>3</ns0:IndFact>
+<ns0:NomItem>Comision - 9425145 20/09/2023</ns0:NomItem>
+<ns0:DscItem/>
+<ns0:Cantidad>1.0</ns0:Cantidad>
+<ns0:UniMed>N/A</ns0:UniMed>
+<ns0:PrecioUnitario>59.7000</ns0:PrecioUnitario>
+<ns0:MontoItem>59.70</ns0:MontoItem>
+</ns0:Item>
+<ns0:Item>
+<ns0:NroLinDet>4</ns0:NroLinDet>
+<ns0:IndFact>3</ns0:IndFact>
+<ns0:NomItem>Comision - 9425148 20/09/2023</ns0:NomItem>
+<ns0:DscItem/>
+<ns0:Cantidad>1.0</ns0:Cantidad>
+<ns0:UniMed>N/A</ns0:UniMed>
+<ns0:PrecioUnitario>120.0000</ns0:PrecioUnitario>
+<ns0:MontoItem>120.00</ns0:MontoItem>
+</ns0:Item>
+</ns0:Detalle>
+<ns0:CAEData>
+<ns0:CAE_ID>75445532452</ns0:CAE_ID>
+<ns0:DNro>244525</ns0:DNro>
+<ns0:HNro>24535324s</ns0:HNro>
+<ns0:FecVenc>2025-08-09</ns0:FecVenc>
+</ns0:CAEData>
+</ns0:eFact>
+<Signature xmlns="http://www.w3.org/2000/09/xmldsig#"><SignedInfo><CanonicalizationMethod Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#WithComments"/><SignatureMethod Algorithm="http://www.w3.org/2000/09/xmldsig#rsa-sha1"/><Reference URI=""><Transforms><Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature"/></Transforms><DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1"/><DigestValue>Z1VbVAgp7p0bDGAoTjXH8tysT3o=</DigestValue></Reference></SignedInfo><KeyInfo><X509Data><X509IssuerSerial><X509IssuerName>CN=Abitab, OU=ID digital, O=Abitab S.A., L=Montevideo, C=UY</X509IssuerName><X509SerialNumber>7768553280812435263748787609063782071230013836937</X509SerialNumber></X509IssuerSerial></X509Data></KeyInfo></Signature></ns0:CFE><cfe:Adenda>Nro Item: </cfe:Adenda>
+</cfe:CFE_Adenda>
+</cfe:EnvioCFE_entreEmpresas>
