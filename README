@@ -28,7 +28,7 @@ Sobre la implementacion
 
 1. Ejecute - pyhton -m venv env - para crear un entorno virtual de python, luego inicialice el entorno virtual
 
-2. Ejecute - python manage.py -r requirements.txt - para instalar todas las dependencias
+2. Ejecute - pip install -r requirements.txt - para instalar todas las dependencias
 
 3. Ejecute - python ReadXml/ReceivedMail/processXml.py
 
