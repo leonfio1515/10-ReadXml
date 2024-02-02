@@ -20,3 +20,6 @@ resgsProv = DocXml.objects.filter(doc_type=182, date_create = date_process, rut_
 
 factsUte = DocXml.objects.filter(doc_type=111, date_create = date_process, rut__rut=210778720012)
 
+
+
+redondeos = ('Ajuste por redondeo', 'Ajuste por Redondeo', 'REDONDEO', 'Redondeo Ajuste', 'Redondeo Cero Decimal', 'Redondeo negativo', 'Redondeo positivo', 'Servicio Redondeo en Factura', 'Redondeo')

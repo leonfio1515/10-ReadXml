@@ -2,49 +2,42 @@ from variables import *
 import sys
 import xml.etree.ElementTree as ET
 from django.db import transaction
-from processDoc import ProcessFact, ProcessResg
-from dataFrame import DataFrameFactFinan,DataFrameRetFinan
+from processDoc import ProcessFact
+from dataFrame import *
 #------------------------------------------------------------------#
 
 def ProcessXml():
+    with open(log_path, "w") as log_file:
+        sys.stdout = log_file
 
-    #---Crea directorio para guardarlos logs
-    log_path = os.path.join(folder_path, log_console)
-    sys.stdout = open(log_path, "w")
+        xml_files = [
+            file for file in os.listdir(output_folder)
+            if file.endswith(file_format)
+        ]
 
-    #--Creamos una lista con los archivos descargados
-    xml_files = [
-        file for file in os.listdir(folder_path)
-        if file.endswith('.xml')
-    ]
-    print(f'En ejecucion\n')
+        for xml_file in xml_files:
+            try:
+                ns = {'ns': 'http://cfe.dgi.gub.uy'}
+                file_path = os.path.join(output_folder, xml_file)
+                tree = ET.parse(file_path)
+                root = tree.getroot()
 
-    for xml_file in xml_files:
-        ns = {'ns': 'http://cfe.dgi.gub.uy'}
-        file_path = os.path.join(folder_path, xml_file)
-        tree = ET.parse(file_path)
-        root = tree.getroot()
+                with transaction.atomic():
+                    for i in root.findall('.//ns:CFE_Adenda', namespaces=ns):
+                        rut = i.find('.//ns:RUCEmisor', namespaces=ns).text  
+                        type_doc = i.find('.//ns:TipoCFE', namespaces=ns).text             
 
-        with transaction.atomic():
-            for i in root.findall('.//ns:CFE_Adenda', namespaces=ns):
-                rut = i.find('.//ns:RUCEmisor', namespaces=ns).text               
+                        if type_doc == '111':
+                            ProcessFact(i, ns, xml_file)
+                            print(f'Fin de factura \n')
 
-                if i.find('.//ns:TipoCFE', namespaces=ns).text == '111':
-                    ProcessFact(i, ns, xml_file)
-                    print(f'Fin de factura \n')
+            except Exception as e:
+                print('ERROR', str(e), xml_file)
 
-                elif i.find('.//ns:TipoCFE', namespaces=ns).text == '182':
-                    ProcessResg(i, ns, xml_file)
-                    print(f'Fin de resguardo \n')
+        print("Proceso completo", today)
+        
 
-                elif i.find('.//ns:TipoCFE', namespaces=ns).text == '112':
-                    print(f'Tiene Nota de credito - {rut} - {xml_file}\n')
-                    
-    print("Proceso completo", today)
-
-
-    DataFrameFactFinan()
-    DataFrameRetFinan()
-    sys.stdout.close()
+        # DataFrameFactFinan()
+        # DataFrameRetFinan()
 
 ProcessXml()
