@@ -4,12 +4,12 @@ import sys
 import re
 from variables import *
 
-from processXml import ProcessXml
+from processXml import process_xml
 from Model.models import DocXml
 #--------------------------------------------------------------#
 
 
-def SaveMail():      
+def save_mail():      
 
     #--Crea directorio para guardar los mail descargados
     output_folder.mkdir(parents=True, exist_ok=True)
@@ -72,8 +72,8 @@ def SaveMail():
         return outlook
     
 def main():
-    outlook_instance = SaveMail()
-    ProcessXml()
+    outlook_instance = save_mail()
+    process_xml()
 
     sys.stdout = sys.__stdout__
     print('Proceso completo')

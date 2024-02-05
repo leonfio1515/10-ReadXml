@@ -2,11 +2,11 @@ from variables import *
 import sys
 import xml.etree.ElementTree as ET
 from django.db import transaction
-from processDoc import ProcessFact
+from processDoc import process_fact
 from dataFrame import *
 #------------------------------------------------------------------#
 
-def ProcessXml():
+def process_xml():
     with open(log_path, "w") as log_file:
         sys.stdout = log_file
 
@@ -28,7 +28,7 @@ def ProcessXml():
                         type_doc = i.find('.//ns:TipoCFE', namespaces=ns).text             
 
                         if type_doc == '111':
-                            ProcessFact(i, ns, xml_file)
+                            process_fact(i, ns, xml_file)
                             print(f'Fin de factura \n')
 
             except Exception as e:
@@ -37,7 +37,7 @@ def ProcessXml():
         print("Proceso completo", today)
         
 
-        # DataFrameFactFinan()
-        # DataFrameRetFinan()
+        process_data_frame()
+        data_frame_fact_finan()
 
-ProcessXml()
+process_xml()

@@ -1,7 +1,7 @@
 import sys
 import os
 import django
-from variables import project_directory,adressee_finan, adressee_prov
+from variables import project_directory, destination_account
 
 from django.core.mail import EmailMessage
 from django.template.loader import render_to_string
@@ -27,7 +27,7 @@ def send_mail_finan(excel_path_item, excel_path_fact, date_process,document_type
         'nameFact2': excel_path_item,
     })
     email = EmailMessage(subject, message, settings.EMAIL_HOST_USER,
-              adressee_finan)
+              destination_account)
     email.attach_file(excel_path_fact)
     email.attach_file(excel_path_item)
     email.send()
@@ -42,7 +42,7 @@ def send_mail_prov_fact(excel_path_item, excel_path_fact, date_process, document
         'nameFact2': excel_path_item,
     })
     email = EmailMessage(subject, message, settings.EMAIL_HOST_USER,
-              adressee_prov)
+              destination_account)
     email.attach_file(excel_path_fact)
     email.attach_file(excel_path_item)
     email.send()

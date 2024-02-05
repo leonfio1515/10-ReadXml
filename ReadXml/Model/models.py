@@ -37,6 +37,14 @@ class DocXml(models.Model):
     cod_doc = models.PositiveSmallIntegerField(blank=True, null=True)  
     sobre = models.CharField(max_length=100, blank=True, null=True)
 
+    id_doc = models.CharField(max_length= 20, unique=True)
+
+    def save(self, *args, **kwargs):
+        prov_obj = ProvType.objects.get(rut = self.rut.rut)
+        self.id_doc = f'{prov_obj.rut}-{self.doc_number}'
+        
+        super().save(*args, **kwargs)
+
 class Item(models.Model):
     doc_number= models.ForeignKey(DocXml, on_delete=models.CASCADE)
 

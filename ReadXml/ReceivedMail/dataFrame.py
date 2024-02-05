@@ -1,9 +1,12 @@
 import os
 import sys
 import django
+import re
 
+from django.db.models import Sum
 from function import *
 from dfConstructor import *
+from xlsConstructor import *
 from query import *
 #-----------------------------------------------------#
 
@@ -14,105 +17,218 @@ django.setup()
 from Model.models import *
 #--------------------------------------------------------------#
 
-def DataFrameFactFinan():
-    for index, fact in enumerate(factsFinan):
+#--------------------------------------------------------------#
+
+def data_frame_fact_finan():
+    with open(log_df_finan_fact_path, "w") as log_file_finan_fact:
+        sys.stdout = log_file_finan_fact
+
+
+        excluir = ('Comisiones por servicios financieros','COMISIONES POR SERVICIOS FINANCIEROS')
+        name = 'Financieras'
         try:
-            prov_num.append(fact.rut.prov_sap)
-            doc_num_fact.append(fact.doc_number)
-            doc_date.append(fact.date_issue.strftime('%Y%m%d'))
-            items = Item.objects.filter(doc_number=fact)
+            for index, fact in enumerate(factsFinan):
+                item_line = 1
+                items = Item.objects.filter(doc_number=fact)
 
-        except Exception as e:
-            print(f'{str(e)} - Prov: {fact.rut.prov_sap} - Doc: {fact.doc_number} - DF FactFinan')
-
-
-        for index_item, item in enumerate(items):
-            if item.item_name == ticket:
-                pass
-            else:
-                doc_num_item.append(item.doc_number.doc_number)
-                item_num.append(item.line_number)
-                amount.append(item.amount)
-
-                try:
-                    art = Article.objects.get(name__icontains=item.doc_number.rut)
-                except Exception as e:
-                    print(f'{str(e)} - Prov: {item.doc_number.rut} - Item: {item.item_name} - Doc: {item.doc_number.doc_number} - DF FactFinan' )
-
-                try:
-                    if item.item_name == retencion:
-                        article.append(ret_cod)
-                    elif item.item_name == cost_envio:
-                        article.append(cost_cod)
-                    elif item.item_name == financiacion:
-                        article.append(finan_cod)
-                    else:
-                        article.append(art.cod_sap)
-                except Exception as e:
-                    print(f'{str(e)} - DF FactFinan')
+                if items[0].item_name in excluir:
+                    pass
+                else:
+                    try: 
+                        get_doc_fact(fact.doc_number, 
+                                        fact.rut.prov_sap, 
+                                        fact.date_issue, 
+                                        fact.date_exp, 
+                                        fact.currency, 
+                                        fact.rut.control_account, 
+                                        fact.total, 
+                                        fact.rut.name)
+                        items = Item.objects.filter(doc_number=fact)           
+                    except Exception as e:
+                        print(f'{str(e)} - Prov: {fact.rut.prov_sap} - Doc: {fact.doc_number}')
 
 
-    data_fact = Create_df_Fact(doc_num_fact, prov_num, doc_date)
-    data_item = Create_df_item_Fact(doc_num_item,item_num,article,amount)
+                    for index_item, item in enumerate(items):
+                        if item.item_name == ticket or item.sub_amount <= 0:
+                            pass
+                        else:
+                            norm_f = 'F_236'
+                            whouse = ''
+                            date_from = ''
+                            date_until = ''
+                            desc = ''
+                            tax = get_iva_type(item)
+                            norm_g = get_norm_finan(item)
+                            item_amount = get_item_amount_finan(fact, item, tax)
+                            free_text = fact.rut.name
+                            quantity = 1
+                            
+                            try:
+                                art_id = Article.objects.get(name__icontains=item.doc_number.rut)
+                            except Exception as e:
+                                print(f'{str(e)} - Prov: {item.doc_number.rut} - Item: {item.item_name} - Doc: {item.doc_number.doc_number}' )
 
-    XlsxFactFinan(data_fact, data_item)
+                            art = get_item_finan(item, art_id)
 
-def DataFrameRetFinan():
-    for index, resg in enumerate(resgsFinan):
-        items = Item.objects.filter(doc_number=resg)
-        for index_item, item in enumerate(items):           
+                        get_item_fact(   item.doc_number.doc_number, 
+                                            item_line, 
+                                            art, 
+                                            item_amount, 
+                                            norm_g, 
+                                            norm_f, 
+                                            fact.currency, 
+                                            tax, 
+                                            quantity, 
+                                            whouse, 
+                                            fact.date_issue, 
+                                            fact.date_issue, 
+                                            desc, 
+                                            free_text 
+                                            )
 
-            if item.item_name == '2183161' or item.item_name == '2183169':
+                        item_line += 1
+                    print(f'Factura de Financieras creada - Finan: {fact.rut.name} - Doc: {fact.doc_number} - Date: {fact.date_issue} - Create: {fact.date_create} - Sobre: {fact.sobre}\n')
 
-                try:
-                    doc_num_resg17453.append(resg.doc_number)
-                    doc_date_resg17453.append(resg.date_issue.strftime('%Y%m%d'))
-                    account_prov_resg17453.append(resg.rut.cta_sap)
-                    amount_resg17453.append(resg.total)
-                    item_17453.append(item.amount)
+            try:
+                data_fact_finan = create_df_fact(
+                        doc_num_fact_var, 
+                        prov_num_fact_var, 
+                        doc_date_fact_var, 
+                        doc_date_exp_fact_var, 
+                        currency_fact_var, 
+                        amount_fact_var, 
+                        memo_fact_var,
+                        control_accoun_var
+                    )
+                
+                data_item_finan = create_df_item_fact(
+                    doc_num_item_fact_var,
+                    item_num_fact_var,
+                    article_fact_var,
+                    amount_item_fact_var,
+                    norm_fact_var,
+                    tax_type_fact_var,
+                    currency_item_fact_var,
+                    quantity_fact_var,
+                    wHouse_fact_var, 
+                    date_from_fact_var, 
+                    date_until_fact_var, 
+                    desc_item_fact_var, 
+                    norm_f_fact_var,
+                    free_text_fact_var
+                    )
+                print(data_fact_finan)
+            except Exception as e:
+                print(str(e))
 
-                    data_resg17453 = Create_df_resg_17453(doc_num_resg17453,account_prov_resg17453,doc_date_resg17453,item_17453)
-                    resg_item17453 = Create_df_item_resg_17453(doc_num_resg17453,account_prov_resg17453,amount_resg17453)
-                except Exception as e:
-                    print(f'{str(e)} - Doc: {resg.doc_number} - Prov: {resg.rut.cta_sap} - DF RetFinan')
+            xlsx_fact_finan(data_fact_finan, data_item_finan, name)
+            clear_list()
 
-            elif item.item_name == '2181411' or item.item_name == '2181415':
-                try:
-                    doc_num_resg19210.append(resg.doc_number)
-                    doc_date_resg19210.append(resg.date_issue.strftime('%Y%m%d'))
-                    account_prov_resg19210.append(resg.rut.cta_sap)
-                    amount_resg19210.append(resg.total)
-                    item_19210.append(item.amount)
-
-                    data_resg19210 = Create_df_resg_19210(doc_num_resg19210,account_prov_resg19210,doc_date_resg19210,item_19210)
-                    resg_item19210 = Create_df_item_resg_19210(doc_num_resg19210,account_prov_resg19210,amount_resg19210)
-                except Exception as e:
-                    print(f'{str(e)} - Doc: {resg.doc_number} - Prov: {resg.rut.cta_sap} - DF RetFinan')
-
-            elif item.item_name == '2183166':
-                try:
-                    doc_num_resg18910.append(resg.doc_number)
-                    doc_date_resg18910.append(resg.date_issue.strftime('%Y%m%d'))
-                    account_prov_resg18910.append(resg.rut.cta_sap)
-                    amount_resg18910.append(resg.total)
-                    item_18910.append(item.amount)
-
-                    data_resg18910 = Create_df_resg_18910(doc_num_resg18910,account_prov_resg18910,doc_date_resg18910,item_18910)
-                    resg_item18910 = Create_df_item_resg_18910(doc_num_resg18910,account_prov_resg18910,amount_resg18910)
-                except Exception as e:
-                    print(f'{str(e)} - Doc: {resg.doc_number} - Prov: {resg.rut.cta_sap} - DF RetFinan')
-
-    try:
-        XlsxResg19210Finan(data_resg19210, resg_item19210)
-    except Exception as e:
-        print(f'{str(e)} - No existe resguardo - In resg 19210')
-    try:
-        XlsxResg18910Finan(data_resg18910, resg_item18910)
-    except Exception as e:
-        print(f'{str(e)} - No existe resguardo  - In resg 18910')
-    try:
-        XlsxResg17453Finan(data_resg17453, resg_item17453)
-    except Exception as e:
-        print(f'{str(e)} - No existe resguardo - In resg 17453')
+        except:
+            print('No existen facturas de Financieras')
+    sys.stdout = sys.__stdout__
 
 #--------------------------------------------------------------#
+
+def data_frame_fact_ute():
+    excluir = r'Saldos a Favor'
+    try:
+        for index, fact in enumerate(factsUte):
+            try:
+                name = 'UTE'
+                add_data = AdData.objects.get(doc_number=fact)
+                consumo = add_data.cons_lect.replace(',','.')
+                account = add_data.account
+
+                try:
+                    suc_id = 'Null'
+                    suc = 'Null'
+                except Exception as e:
+                    if account == '0655141000':
+                        suc = '026'
+                    elif account == '1813951000' or account == '4140591000' :
+                        suc = '069'
+                    else:
+                        suc = 'Null'
+                memo = f'Suc: {suc} - {add_data.date_from} - {add_data.date_until} - {consumo} Kw'
+
+                get_doc_fact(fact.doc_number, fact.rut.prov_sap, fact.date_issue, fact.date_exp, fact.currency, fact.rut.control_account, fact.total, memo)
+
+                items = Item.objects.filter(doc_number=fact)
+            except Exception as e:
+                print(f'{str(e)} - Prov: {fact.rut.prov_sap} - Doc: {fact.doc_number}')
+
+            for index_item, item in enumerate(items):
+                try:
+                    coin = re.search(excluir, item.item_name)
+
+                    if coin or item.sub_amount == 0:
+                        pass
+                    elif item.sub_amount > 0:
+                        try: 
+                            imp_unit = round(float(item.sub_amount),2)
+                        except Exception as e:
+                            imp_unit = 0
+                            print(str(e))
+
+                        if imp_unit != 0:                    
+                            imp_unit = get_item_amount_ute(item, add_data)
+                            cant_unit = '1'                       
+                            desc = round(float(item.desc_porc),2)
+                            tax = get_iva_type(item)
+                            norm_g, norm_f, whouse = get_norm_ute(add_data, account)
+                            art = get_art(item, name)
+                            free_text = ''
+
+                        get_item_fact(item.doc_number.doc_number,item.line_number, art, imp_unit, norm_g, norm_f, fact.currency, tax, cant_unit, whouse, add_data.date_from, add_data.date_until, desc, free_text )
+
+                except Exception as e:
+                    print(f'{str(e)} - Prov: {fact.rut.prov_sap} - Doc: {fact.doc_number}')
+            print(f'Factura de UTE creada - Doc: {fact.doc_number} - Date: {fact.date_issue} - Create: {fact.date_create} - Sobre: {fact.sobre}')
+    except:
+        print('No existen documentos de UTE')
+    print('Fin facturas UTE\n')
+#--------------------------------------------------------------#
+
+#----------------------------------------------------------------------------#
+
+def process_data_frame():
+    with open(log_df_prov_path, "w") as log_file_prov:
+        sys.stdout = log_file_prov
+
+        data_frame_fact_ute()
+        name = 'Doc Proveedores'
+        data_fact = create_df_fact(
+                doc_num_fact_var, 
+                prov_num_fact_var, 
+                doc_date_fact_var, 
+                doc_date_exp_fact_var, 
+                currency_fact_var, 
+                amount_fact_var, 
+                memo_fact_var,
+                control_accoun_var
+            )
+
+        data_item = create_df_item_fact(
+            doc_num_item_fact_var,
+            item_num_fact_var,
+            article_fact_var,
+            amount_item_fact_var,
+            norm_fact_var,
+            tax_type_fact_var,
+            currency_item_fact_var,
+            quantity_fact_var,
+            wHouse_fact_var, 
+            date_from_fact_var, 
+            date_until_fact_var, 
+            desc_item_fact_var, 
+            norm_f_fact_var,
+            free_text_fact_var
+            )
+
+        xlsx_fact(data_fact, data_item, name)
+        clear_list()    
+    sys.stdout = sys.__stdout__
+
+#--------------------------------------------------------------#
+

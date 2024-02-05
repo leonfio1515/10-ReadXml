@@ -1,5 +1,7 @@
 import sys
+import re
 import django
+from datetime import datetime
 from variables import *
 from function import *
 import xml.etree.ElementTree as ET
@@ -10,9 +12,10 @@ os.environ.setdefault("DJANGO_SETTINGS_MODULE", "ReadXml.settings")
 django.setup()
 
 from Model.models import *
-#--------------------------------------------------------------#
 #--------------------------------------------------------------------------------------#
-def GetProv(i, ns):
+#--------------------------------------------------------------------------------------#
+
+def get_proveedor(i, ns):
     try:
         rut = i.find('.//ns:RUCEmisor', namespaces=ns).text
         name = i.find('.//ns:RznSoc', namespaces=ns).text
@@ -20,7 +23,7 @@ def GetProv(i, ns):
         print(f'Error al obtener datos del proveedor (Fun GetProv) - {str(e)}')
     return rut, name
 
-def GetDocXml(i, ns):
+def get_doc_xml(i, ns):
     try:
         cod_doc = i.find('.//ns:FmaPago', namespaces=ns).text
         doc_num = i.find('.//ns:Nro', namespaces=ns).text
@@ -45,7 +48,7 @@ def GetDocXml(i, ns):
     except Exception as e:
         print(f'Error al obtener valores DocXml {i}-{ns} (Fun GetDocXml) - {str(e)}')  
 
-def GetAdenda(i, ns, rut):
+def get_adenda(i, ns, rut):
     rut = i.find('.//ns:RUCEmisor', namespaces=ns).text
     try:
         if rut == '211962820014':
@@ -73,7 +76,7 @@ def GetAdenda(i, ns, rut):
 
     return consumo
 
-def GetItemRet(i, ns, e):
+def get_item_ret(i, ns, e):
     try:
         try:
             item_name_ret = e.find('.//ns:CodRet', namespaces=ns).text
@@ -82,6 +85,7 @@ def GetItemRet(i, ns, e):
 
         try:
             amount_ret = e.find('.//ns:ValRetPerc', namespaces=ns).text
+            amount_ret = round(float(amount_ret), 2)
         except:
             amount_ret = ''
 
@@ -102,11 +106,13 @@ def GetItemRet(i, ns, e):
 
         try:
             amount = e.find('.//ns:MontoItem', namespaces=ns).text
+            amount = round(float(amount), 2)
         except:
             amount = ''
 
         try:
             iva_type = e.find('.//ns:IndFact', namespaces=ns).text
+            iva_type_item = get_iva_type_item(iva_type)
         except:
             iva_type = ''
 
@@ -127,18 +133,34 @@ def GetItemRet(i, ns, e):
                 desc = i.find('.//ns:GlosaDR', namespaces=ns).text
         except:
             desc = 0    
+
+        if int(iva_type) == 7 and item_name in redondeos:
+            amount_item = float(amount) *-1
+            amount_iva = float(amount) * iva_type_item /100
+            amount_iva = round(float(amount_iva), 2)
+        elif rut == '211223510015':
+            amount_iva = float(amount) - (float(amount) / ((iva_type_item /100)+1))
+            amount_item = float(amount) - amount_iva
+            amount_item = round(float(amount_item), 2)
+        else:
+            amount_item = float(amount)
+            amount_iva = float(amount) * iva_type_item /100
+            amount_iva = round(float(amount_iva), 2)
+        
     except Exception as e:
         print(f'Error al obtener item retencion (Fun GetItemRet) - {str(e)}')
 
-    return item_name_ret, amount_ret, line_number, item_name, quantity, amount, iva_type, consumo, cod, desc
+    return item_name_ret, amount_ret, line_number, item_name, quantity, amount, iva_type_item, consumo, cod, desc, amount_item, amount_iva
 
-def GetItem(i, ns, e):
+def get_item(i, ns, e):
     try:
         rut = i.find('.//ns:RUCEmisor', namespaces=ns).text
         line_number = e.find('.//ns:NroLinDet', namespaces=ns).text
         item_name = e.find('.//ns:NomItem', namespaces=ns).text
         quantity = e.find('.//ns:Cantidad', namespaces=ns).text
+
         iva_type = e.find('.//ns:IndFact', namespaces=ns).text
+        iva_type_item = get_iva_type_item(iva_type)
 
         try:
             if rut == '216639270017':
@@ -148,6 +170,7 @@ def GetItem(i, ns, e):
         except:
             cod = ''
         amount = e.find('.//ns:MontoItem', namespaces=ns).text
+        amount = round(float(amount), 2)
 
         try:
             desc_g = e.find('.//ns:DescuentoPct', namespaces=ns).text
@@ -161,12 +184,26 @@ def GetItem(i, ns, e):
 
         except Exception as e:
             desc = 0
+        
+        if int(iva_type) == 7 and item_name in redondeos:
+            amount_item = float(amount) *-1
+            amount_iva = float(amount) * iva_type_item /100
+            amount_iva = round(float(amount_iva), 2)
+        elif rut == '211223510015':
+            amount_iva = float(amount) - (float(amount) / ((iva_type_item /100)+1))
+            amount_item = float(amount) - amount_iva
+            amount_item = round(float(amount_item), 2)
+        else:
+            amount_item = float(amount)
+            amount_iva = float(amount) * iva_type_item /100
+            amount_iva = round(float(amount_iva), 2)
+        
     except Exception as e:
         print(f'Error al obtener valores de Item {rut} - (Fun GetItem) - {str(e)}')
 
-    return line_number, item_name, quantity, iva_type, cod, amount, desc
+    return line_number, item_name, quantity, iva_type_item, cod, amount, desc, amount_item, amount_iva
 
-def GetAddData(i, ns, rut, date_issue):
+def get_add_data(i, ns, rut, date_issue):
     try:
         rut = i.find('.//ns:RUCEmisor', namespaces=ns).text
         try:
@@ -254,13 +291,27 @@ def GetAddData(i, ns, rut, date_issue):
 
     return cuenta, desde, hasta, lectura_ant, lectura_act
 
+def get_iva_type_item(iva_type):
+    if int(iva_type) == 1:
+        iva_type_item = 0
+    elif int(iva_type) == 2:
+        iva_type_item = 10
+    elif int(iva_type) == 3:
+        iva_type_item = 22
+    else:
+        iva_type_item = 0 
 
-def ProcessFact(i, ns, xml_file):
+    return iva_type_item  
 
 
-    rut, name = GetProv(i, ns)        
-    doc_num, doc_type, date_issue, date_exp, total, iva, iva_min, currency_type, cod_doc = GetDocXml(i, ns)
-    consumo = GetAdenda(i, ns, rut)
+#--------------------------------------------------------------------------------------#
+#--------------------------------------------------------------------------------------#
+
+def process_fact(i, ns, xml_file):
+
+    rut, name = get_proveedor(i, ns)        
+    doc_num, doc_type, date_issue, date_exp, total, iva, iva_min, currency_type, cod_doc = get_doc_xml(i, ns)
+    consumo = get_adenda(i, ns, rut)
     sobre = xml_file
 
     try:
@@ -268,13 +319,13 @@ def ProcessFact(i, ns, xml_file):
         print(f'El documento {get_doc.doc_number} del sobre {xml_file} ya existe')
     
     except DocXml.DoesNotExist:
-
+        
         try:
             get_prov = ProvType.objects.get(rut=rut)
             print(f'El proveedor {get_prov.rut} - {get_prov.name} ya existe')
         except ProvType.DoesNotExist:
             try:
-                CreateProv(rut, name)
+                create_prov(rut, name)
                 rut_prov = ProvType.objects.get(rut=rut)
             except Exception as e:
                 print(f'Error al crear el proveedor (Fun CreateProv): {rut} - {name} - {str(e)}')
@@ -289,36 +340,32 @@ def ProcessFact(i, ns, xml_file):
             if item_name_search != 'Cobranza':   
 
                 rut_prov = ProvType.objects.get(rut=rut)
-                CreateDocFact(rut_prov,doc_num,doc_type,date_issue,total,iva,currency_type,iva_min, date_exp, cod_doc, sobre)
+                create_doc_fact(rut_prov,doc_num,doc_type,date_issue,total,iva,currency_type,iva_min, date_exp, cod_doc, sobre)
                 doc_number = DocXml.objects.get(doc_number=doc_num)
 
                 for e in items:
 
                     if  e.find('.//ns:RetencPercep', namespaces=ns):
 
-                        item_name_ret, amount_ret, line_number, item_name, quantity, amount, iva_type, consumo, cod, desc = GetItemRet(i, ns, e)
+                        item_name_ret, amount_ret, line_number, item_name, quantity, amount, iva_type_item, consumo, cod, desc, amount_item, amount_iva = get_item_ret(i, ns, e)
 
                         try:
-                            CreateItemFact17453(doc_number, line_number, item_name_ret, quantity, amount_ret, iva_type, cod, desc)
+                            create_item_fact_17453(doc_number, line_number, item_name_ret, quantity, amount_ret, iva_type_item, cod, desc, amount_item, amount_iva)
                         except ProvType.DoesNotExist:
                             print(f'Num doc no encontrado al crear ItemFact17453 con Resg {doc_number} en {xml_file}')
 
-                        try:
-                            CreateItem(rut, doc_number, line_number, item_name, quantity, amount, iva_type, cod, desc)
-                        except ProvType.DoesNotExist:
-                            print(f'Num doc no encontrado al crear ItemFact con Resg {doc_number} en {xml_file}')
                     else:
-                        line_number, item_name, quantity, iva_type, cod, amount, desc = GetItem(i, ns, e)
+                        line_number, item_name, quantity, iva_type_item, cod, amount, desc, amount_item, amount_iva = get_item(i, ns, e)
                         try:
-                            CreateItem(rut, doc_number, line_number, item_name, quantity, amount, iva_type, cod, desc)
+                            create_item(rut, doc_number, line_number, item_name, quantity, amount, iva_type_item, cod, desc, amount_item, amount_iva)
 
                         except ProvType.DoesNotExist:
                             print(f'Num doc no encontrado al crear ItemFact {doc_number} en {xml_file}')
 
 
                 try:
-                    cuenta, desde, hasta, lectura_ant, lectura_act = GetAddData(i, ns, e, date_issue)
-                    AdDataFact(desde,hasta,cuenta, doc_number,consumo, lectura_act, lectura_ant)
+                    cuenta, desde, hasta, lectura_ant, lectura_act = get_add_data(i, ns, e, date_issue)
+                    add_data_fact(desde,hasta,cuenta, doc_number,consumo, lectura_act, lectura_ant)
                 except Exception as e:
                     print(f'Datos no encontrados en {doc_num} - {str(e)}')
 

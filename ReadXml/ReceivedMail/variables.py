@@ -71,39 +71,78 @@ finan_cod = 'GTO000814'
 
 ticket = 'Ticket Compliments® Electrónico'
 
+tax_map = {
+    '0':'IVA CEXE',
+    '22':'IVA CTB',
+    '10':'IVA CTM',
+}
 
-#------------------DATA FRAME FACT----------------------#
-#Se definen las listas con las que se generaran los DataFrame
-prov_num = []
-doc_num_fact = []
-doc_date = []
+norma_financieras = {
+    '3239 - cupones':'G_191',
+    '3239 - ordenes':'G_214',
+    '13338501':'G_163',
+    '31207 - cupones':'G_71',
+    '64400 - cupones':'G_75',
+    '11020401':'G_162',
+    '11020413':'G_71',
+    '13338501':'G_163',
+    '13338503':'G_71',
+    '13338504':'G_163',
+    '13881101':'G_75',
+    '5722':'G_143',
+    '378282':'G_144',
+    '501444':'G_75',
+    '297469':'G_71',
+    '505914':'G_77',
+    '000265129396':'G_71',
+    '000747437617':'G_75',
+    '000452961396':'G_71',
+}
 
-doc_num_item = []
-item_num = []
-article = []
-amount = []
+#------------------DATA FRAME FACT VARIABLES----------------------#
+prov_num_fact_var_finan = []
+doc_num_fact_var_finan = []
+doc_date_fact_var_finan = []
+doc_date_exp_fact_var_finan = []
+control_accoun_var_finan = []
+currency_fact_var_finan = []
+doc_num_item_fact_var_finan = []
+desc_item_fact_var_finan = []
+item_num_fact_var_finan = []
+article_fact_var_finan = []
+amount_fact_var_finan = []
+amount_item_fact_var_finan = []
+norm_fact_var_finan = []
+norm_f_fact_var_finan = []
+memo_fact_var_finan = []
+tax_type_fact_var_finan = []
+currency_item_fact_var_finan = []
+quantity_fact_var_finan = []
+wHouse_fact_var_finan = []
+date_from_fact_var_finan = []
+date_until_fact_var_finan = []
+free_text_fact_var_finan = []
 
-#------------------DATA FRAME RESG----------------------#
-doc_num_resg17453 = []
-doc_date_resg17453 = []
-account_prov_resg17453 = []
-amount_resg17453 = []
-
-doc_num_resg19210 = []
-doc_date_resg19210 = []
-account_prov_resg19210 = []
-amount_resg19210 = []
-
-doc_num_resg18910 = []
-doc_date_resg18910 = []
-account_prov_resg18910 = []
-amount_resg18910 = []
-
-doc_num_item_resg = []
-item_num_resg = []
-
-item_17453 = []
-item_19210 = []
-item_18910 = []
-
-
+#------------------DATA FRAME FACT VARIABLES----------------------#
+prov_num_fact_var = []
+doc_num_fact_var = []
+doc_date_fact_var = []
+doc_date_exp_fact_var = []
+control_accoun_var = []
+currency_fact_var = []
+doc_num_item_fact_var = []
+desc_item_fact_var = []
+item_num_fact_var = []
+article_fact_var = []
+amount_fact_var = []
+amount_item_fact_var = []
+norm_fact_var = []
+norm_f_fact_var = []
+memo_fact_var = []
+tax_type_fact_var = []
+currency_item_fact_var = []
+quantity_fact_var = []
+wHouse_fact_var = []
+date_from_fact_var = []
+date_until_fact_var = []
+free_text_fact_var = []
